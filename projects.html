@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand"><a href="index.html">My Portfolio</a></div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="dark-mode-toggle" aria-label="Toggle dark mode">🌙</button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>My Projects</h1>
+                <p>Explore my code examples and project implementations</p>
+            </div>
+        </section>
+
+        <section class="html-examples">
+            <div class="container">
+                <h2 class="section-title">HTML Fundamentals with Examples</h2>
+                <p class="section-intro">Learn HTML basics with practical examples and explanations</p>
+                
+                <div class="html-example-card">
+                    <h3>1. HTML Document Structure</h3>
+                    <p class="explanation">
+                        Every HTML document needs a basic structure. The <code>&lt;!DOCTYPE html&gt;</code> declaration tells the browser this is an HTML5 document. 
+                        The <code>&lt;html&gt;</code> tag is the root element, <code>&lt;head&gt;</code> contains metadata, and <code>&lt;body&gt;</code> contains visible content.
+                    </p>
+                    <div class="code-example">
+                        <h4>Basic HTML Structure:</h4>
+                        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;My First Web Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Welcome to My Website&lt;/h1&gt;
+    &lt;p&gt;This is my first paragraph.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+                    <div class="explanation-details">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            <li><code>&lt;!DOCTYPE html&gt;</code> - HTML5 document type declaration</li>
+                            <li><code>&lt;html lang="en"&gt;</code> - Root element with language attribute</li>
+                            <li><code>&lt;head&gt;</code> - Contains metadata (not visible on page)</li>
+                            <li><code>&lt;meta charset="UTF-8"&gt;</code> - Character encoding</li>
+                            <li><code>&lt;title&gt;</code> - Page title (shown in browser tab)</li>
+                            <li><code>&lt;body&gt;</code> - Contains all visible content</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="html-example-card">
+                    <h3>2. HTML Headings and Text Formatting</h3>
+                    <p class="explanation">
+                        HTML provides six levels of headings (h1-h6) and various text formatting tags. Headings create a hierarchy, with h1 being the most important.
+                    </p>
+                    <div class="code-example">
+                        <h4>Headings and Text Formatting:</h4>
+                        <pre><code>&lt;h1&gt;Main Heading (Largest)&lt;/h1&gt;
+&lt;h2&gt;Subheading&lt;/h2&gt;
+&lt;h3&gt;Section Heading&lt;/h3&gt;
+&lt;h4&gt;Subsection Heading&lt;/h4&gt;
+&lt;h5&gt;Minor Heading&lt;/h5&gt;
+&lt;h6&gt;Smallest Heading&lt;/h6&gt;
+
+&lt;p&gt;This is a paragraph. It contains regular text.&lt;/p&gt;
+
+&lt;p&gt;
+    &lt;strong&gt;This text is bold&lt;/strong&gt; and 
+    &lt;em&gt;this text is italic&lt;/em&gt;. 
+    &lt;u&gt;This text is underlined&lt;/u&gt; and 
+    &lt;mark&gt;this text is highlighted&lt;/mark&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+    &lt;small&gt;Small text&lt;/small&gt; and 
+    &lt;del&gt;deleted text&lt;/del&gt; and 
+    &lt;ins&gt;inserted text&lt;/ins&gt;.
+&lt;/p&gt;</code></pre>
+                    </div>
+                    <div class="explanation-details">
+                        <strong>Text Formatting Tags:</strong>
+                        <ul>
+                            <li><code>&lt;strong&gt;</code> - Bold text (semantic importance)</li>
+                            <li><code>&lt;em&gt;</code> - Italic text (emphasis)</li>
+                            <li><code>&lt;u&gt;</code> - Underlined text</li>
+                            <li><code>&lt;mark&gt;</code> - Highlighted text</li>
+                            <li><code>&lt;small&gt;</code> - Smaller text</li>
+                            <li><code>&lt;del&gt;</code> - Deleted text (strikethrough)</li>
+                            <li><code>&lt;ins&gt;</code> - Inserted text (underline)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="html-example-card">
+                    <h3>3. HTML Lists (Ordered and Unordered)</h3>
+                    <p class="explanation">
+                        Lists help organize information. Use <code>&lt;ul&gt;</code> for unordered lists (bullets) and <code>&lt;ol&gt;</code> for ordered lists (numbers).
+                    </p>
+                    <div class="code-example">
+                        <h4>Creating Lists:</h4>
+                        <pre><code>&lt;!-- Unordered List (Bullet Points) --&gt;
+&lt;ul&gt;
+    &lt;li&gt;First item&lt;/li&gt;
+    &lt;li&gt;Second item&lt;/li&gt;
+    &lt;li&gt;Third item&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Ordered List (Numbered) --&gt;
+&lt;ol&gt;
+    &lt;li&gt;Step one&lt;/li&gt;
+    &lt;li&gt;Step two&lt;/li&gt;
+    &lt;li&gt;Step three&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- Nested List --&gt;
+&lt;ul&gt;
+    &lt;li&gt;Frontend
+        &lt;ul&gt;
+            &lt;li&gt;HTML&lt;/li&gt;
+            &lt;li&gt;CSS&lt;/li&gt;
+            &lt;li&gt;JavaScript&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Backend
+        &lt;ul&gt;
+            &lt;li&gt;Node.js&lt;/li&gt;
+            &lt;li&gt;Python&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                    </div>
+                    <div class="explanation-details">
+                        <strong>List Types:</strong>
+                        <ul>
+                            <li><code>&lt;ul&gt;</code> - Unordered list (bullet points)</li>
+                            <li><code>&lt;ol&gt;</code> - Ordered list (numbers/letters)</li>
+                            <li><code>&lt;li&gt;</code> - List item (used in both types)</li>
+                            <li>Lists can be nested inside each other</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="html-example-card">
+                    <h3>4. HTML Links and Images</h3>
+                    <p class="explanation">
+                        Links connect pages together, and images add visual content. The <code>&lt;a&gt;</code> tag creates links, and <code>&lt;img&gt;</code> displays images.
+                    </p>
+                    <div class="code-example">
+                        <h4>Links and Images:</h4>
+                        <pre><code>&lt;!-- External Link --&gt;
+&lt;a href="https://www.example.com" target="_blank"&gt;
+    Visit Example Website
+&lt;/a&gt;
+
+&lt;!-- Internal Link --&gt;
+&lt;a href="about.html"&gt;About Page&lt;/a&gt;
+
+&lt;!-- Link to Email --&gt;
+&lt;a href="mailto:email@example.com"&gt;Send Email&lt;/a&gt;
+
+&lt;!-- Image --&gt;
+&lt;img src="image.jpg" alt="Description of image" width="300" height="200"&gt;
+
+&lt;!-- Image as Link --&gt;
+&lt;a href="page.html"&gt;
+    &lt;img src="thumbnail.jpg" alt="Clickable image"&gt;
+&lt;/a&gt;
+
+&lt;!-- Link with Image and Text --&gt;
+&lt;a href="https://github.com"&gt;
+    &lt;img src="github-icon.png" alt="GitHub"&gt;
+    Visit GitHub
+&lt;/a&gt;</code></pre>
+                    </div>
+                    <div class="explanation-details">
+                        <strong>Attributes Explained:</strong>
+                        <ul>
+                            <li><code>href</code> - URL or file path for links</li>
+                            <li><code>target="_blank"</code> - Opens link in new tab</li>
+                            <li><code>src</code> - Image source path</li>
+                            <li><code>alt</code> - Alternative text (important for accessibility)</li>
+                            <li><code>width</code> and <code>height</code> - Image dimensions</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="html-example-card">
+                    <h3>5. HTML Forms</h3>
+                    <p class="explanation">
+                        Forms collect user input. The <code>&lt;form&gt;</code> element wraps form controls like text inputs, buttons, checkboxes, and dropdowns.
+                    </p>
+                    <div class="code-example">
+                        <h4>Complete Form Example:</h4>
+                        <pre><code>&lt;form action="/submit" method="POST"&gt;
+    &lt;!-- Text Input --&gt;
+    &lt;label for="name"&gt;Name:&lt;/label&gt;
+    &lt;input type="text" id="name" name="name" required placeholder="Enter your name"&gt;
+    
+    &lt;!-- Email Input --&gt;
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email" required&gt;
+    
+    &lt;!-- Password Input --&gt;
+    &lt;label for="password"&gt;Password:&lt;/label&gt;
+    &lt;input type="password" id="password" name="password" required&gt;
+    
+    &lt;!-- Textarea --&gt;
+    &lt;label for="message"&gt;Message:&lt;/label&gt;
+    &lt;textarea id="message" name="message" rows="4" cols="50"&gt;&lt;/textarea&gt;
+    
+    &lt;!-- Dropdown Select --&gt;
+    &lt;label for="country"&gt;Country:&lt;/label&gt;
+    &lt;select id="country" name="country"&gt;
+        &lt;option value="usa"&gt;United States&lt;/option&gt;
+        &lt;option value="uk"&gt;United Kingdom&lt;/option&gt;
+        &lt;option value="canada"&gt;Canada&lt;/option&gt;
+    &lt;/select&gt;
+    
+    &lt;!-- Radio Buttons --&gt;
+    &lt;fieldset&gt;
+        &lt;legend&gt;Gender:&lt;/legend&gt;
+        &lt;input type="radio" id="male" name="gender" value="male"&gt;
+        &lt;label for="male"&gt;Male&lt;/label&gt;
+        &lt;input type="radio" id="female" name="gender" value="female"&gt;
+        &lt;label for="female"&gt;Female&lt;/label&gt;
+    &lt;/fieldset&gt;
+    
+    &lt;!-- Checkbox --&gt;
+    &lt;input type="checkbox" id="newsletter" name="newsletter"&gt;
+    &lt;label for="newsletter"&gt;Subscribe to newsletter&lt;/label&gt;
+    
+    &lt;!-- Submit Button --&gt;
+    &lt;button type="submit"&gt;Submit Form&lt;/button&gt;
+    &lt;button type="reset"&gt;Reset&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                    </div>
+                    <div class="explanation-details">
+                        <strong>Form Elements:</strong>
+                        <ul>
+                            <li><code>&lt;form&gt;</code> - Container for form elements</li>
+                            <li><code>action</code> - Where form data is sent</li>
+                            <li><code>method</code> - HTTP method (GET or POST)</li>
+                            <li><code>&lt;label&gt;</code> - Describes form inputs</li>
+                            <li><code>&lt;input&gt;</code> - Various input types (text, email, password, etc.)</li>
+                            <li><code>required</code> - Makes field mandatory</li>
+                            <li><code>placeholder</code> - Hint text in input field</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="html-example-card">
+                    <h3>6. HTML Semantic Elements</h3>
+                    <p class="explanation">
+                        Semantic HTML5 elements give meaning to content structure. They help with SEO and accessibility by clearly defining page sections.
+                    </p>
+                    <div class="code-example">
+                        <h4>Semantic Layout:</h4>
+                        <pre><code>&lt;header&gt;
+    &lt;nav&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="about.html"&gt;About&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+    &lt;article&gt;
+        &lt;header&gt;
+            &lt;h1&gt;Article Title&lt;/h1&gt;
+            &lt;p&gt;Published on &lt;time datetime="2024-01-15"&gt;January 15, 2024&lt;/time&gt;&lt;/p&gt;
+        &lt;/header&gt;
+        
+        &lt;section&gt;
+            &lt;h2&gt;Introduction&lt;/h2&gt;
+            &lt;p&gt;Article content goes here...&lt;/p&gt;
+        &lt;/section&gt;
+        
+        &lt;aside&gt;
+            &lt;h3&gt;Related Links&lt;/h3&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Link 1&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/aside&gt;
+    &lt;/article&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+    &lt;p&gt;&copy; 2024 My Website. All rights reserved.&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+                    </div>
+                    <div class="explanation-details">
+                        <strong>Semantic Elements:</strong>
+                        <ul>
+                            <li><code>&lt;header&gt;</code> - Page or section header</li>
+                            <li><code>&lt;nav&gt;</code> - Navigation links</li>
+                            <li><code>&lt;main&gt;</code> - Main content area</li>
+                            <li><code>&lt;article&gt;</code> - Independent content piece</li>
+                            <li><code>&lt;section&gt;</code> - Thematic grouping</li>
+                            <li><code>&lt;aside&gt;</code> - Sidebar content</li>
+                            <li><code>&lt;footer&gt;</code> - Page footer</li>
+                            <li><code>&lt;time&gt;</code> - Date/time information</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="html-example-card">
+                    <h3>7. HTML Tables</h3>
+                    <p class="explanation">
+                        Tables organize data into rows and columns. Use them for displaying structured information like schedules, data lists, or comparisons.
+                    </p>
+                    <div class="code-example">
+                        <h4>Table Structure:</h4>
+                        <pre><code>&lt;table border="1"&gt;
+    &lt;caption&gt;Student Grades&lt;/caption&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Name&lt;/th&gt;
+            &lt;th&gt;Subject&lt;/th&gt;
+            &lt;th&gt;Grade&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;John Doe&lt;/td&gt;
+            &lt;td&gt;Mathematics&lt;/td&gt;
+            &lt;td&gt;A&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Jane Smith&lt;/td&gt;
+            &lt;td&gt;Science&lt;/td&gt;
+            &lt;td&gt;B+&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+    &lt;tfoot&gt;
+        &lt;tr&gt;
+            &lt;td colspan="3"&gt;Total Students: 2&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+                    </div>
+                    <div class="explanation-details">
+                        <strong>Table Elements:</strong>
+                        <ul>
+                            <li><code>&lt;table&gt;</code> - Container for table</li>
+                            <li><code>&lt;caption&gt;</code> - Table title/description</li>
+                            <li><code>&lt;thead&gt;</code> - Table header section</li>
+                            <li><code>&lt;tbody&gt;</code> - Table body (main data)</li>
+                            <li><code>&lt;tfoot&gt;</code> - Table footer</li>
+                            <li><code>&lt;tr&gt;</code> - Table row</li>
+                            <li><code>&lt;th&gt;</code> - Header cell (bold by default)</li>
+                            <li><code>&lt;td&gt;</code> - Data cell</li>
+                            <li><code>colspan</code> - Merge columns</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects">
+            <div class="container">
+                <div class="project-card">
+                    <h2>Project 1: Interactive Calculator</h2>
+                    <p class="project-description">
+                        A fully functional calculator built with HTML, CSS, and JavaScript. 
+                        Features include basic arithmetic operations and a clean, modern UI.
+                    </p>
+                    <div class="code-example">
+                        <h3>HTML Structure:</h3>
+                        <pre><code>&lt;div class="calculator"&gt;
+    &lt;div class="display"&gt;
+        &lt;input type="text" id="result" readonly&gt;
+    &lt;/div&gt;
+    &lt;div class="buttons"&gt;
+        &lt;button onclick="clearDisplay()"&gt;C&lt;/button&gt;
+        &lt;button onclick="appendNumber('7')"&gt;7&lt;/button&gt;
+        &lt;button onclick="appendNumber('8')"&gt;8&lt;/button&gt;
+        &lt;button onclick="appendNumber('9')"&gt;9&lt;/button&gt;
+        &lt;button onclick="appendOperator('+')"&gt;+&lt;/button&gt;
+        &lt;!-- More buttons --&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                    <div class="code-example">
+                        <h3>JavaScript Logic:</h3>
+                        <pre><code>let display = document.getElementById('result');
+let currentInput = '';
+
+function appendNumber(num) {
+    currentInput += num;
+    display.value = currentInput;
+}
+
+function appendOperator(op) {
+    if (currentInput !== '' && !isNaN(currentInput[currentInput.length - 1])) {
+        currentInput += op;
+        display.value = currentInput;
+    }
+}
+
+function calculate() {
+    try {
+        currentInput = eval(currentInput).toString();
+        display.value = currentInput;
+    } catch (error) {
+        display.value = 'Error';
+        currentInput = '';
+    }
+}
+
+function clearDisplay() {
+    currentInput = '';
+    display.value = '';
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h2>Project 2: Todo List Application</h2>
+                    <p class="project-description">
+                        A task management application with add, edit, delete, and mark-as-complete functionality.
+                        Uses local storage to persist data.
+                    </p>
+                    <div class="code-example">
+                        <h3>HTML Structure:</h3>
+                        <pre><code>&lt;div class="todo-container"&gt;
+    &lt;h1&gt;My Todo List&lt;/h1&gt;
+    &lt;div class="input-section"&gt;
+        &lt;input type="text" id="todoInput" placeholder="Add a new task..."&gt;
+        &lt;button onclick="addTodo()"&gt;Add&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;ul id="todoList"&gt;&lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                    <div class="code-example">
+                        <h3>JavaScript Implementation:</h3>
+                        <pre><code>let todos = JSON.parse(localStorage.getItem('todos')) || [];
+
+function addTodo() {
+    const input = document.getElementById('todoInput');
+    const text = input.value.trim();
+    
+    if (text !== '') {
+        todos.push({
+            id: Date.now(),
+            text: text,
+            completed: false
+        });
+        input.value = '';
+        saveTodos();
+        renderTodos();
+    }
+}
+
+function toggleTodo(id) {
+    todos = todos.map(todo =&gt;
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+    );
+    saveTodos();
+    renderTodos();
+}
+
+function deleteTodo(id) {
+    todos = todos.filter(todo =&gt; todo.id !== id);
+    saveTodos();
+    renderTodos();
+}
+
+function saveTodos() {
+    localStorage.setItem('todos', JSON.stringify(todos));
+}
+
+function renderTodos() {
+    const list = document.getElementById('todoList');
+    list.innerHTML = todos.map(todo =&gt; `
+        &lt;li class="${todo.completed ? 'completed' : ''}"&gt;
+            &lt;span onclick="toggleTodo(${todo.id})"&gt;${todo.text}&lt;/span&gt;
+            &lt;button onclick="deleteTodo(${todo.id})"&gt;Delete&lt;/button&gt;
+        &lt;/li&gt;
+    `).join('');
+}
+
+renderTodos();</code></pre>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h2>Project 3: Responsive Navigation Menu</h2>
+                    <p class="project-description">
+                        A mobile-friendly navigation menu with hamburger icon for smaller screens.
+                        Demonstrates CSS flexbox and media queries.
+                    </p>
+                    <div class="code-example">
+                        <h3>HTML:</h3>
+                        <pre><code>&lt;nav class="navbar"&gt;
+    &lt;div class="nav-brand"&gt;Logo&lt;/div&gt;
+    &lt;button class="nav-toggle" onclick="toggleNav()"&gt;
+        &lt;span&gt;&lt;/span&gt;
+        &lt;span&gt;&lt;/span&gt;
+        &lt;span&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;ul class="nav-menu" id="navMenu"&gt;
+        &lt;li&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#services"&gt;Services&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+                    </div>
+                    <div class="code-example">
+                        <h3>CSS:</h3>
+                        <pre><code>.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #333;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: #333;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+}</code></pre>
+                    </div>
+                    <div class="code-example">
+                        <h3>JavaScript:</h3>
+                        <pre><code>function toggleNav() {
+    const navMenu = document.getElementById('navMenu');
+    navMenu.classList.toggle('active');
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h2>Project 4: Form Validation</h2>
+                    <p class="project-description">
+                        A contact form with real-time validation using JavaScript.
+                        Includes email format checking, required field validation, and user feedback.
+                    </p>
+                    <div class="code-example">
+                        <h3>HTML Form:</h3>
+                        <pre><code>&lt;form id="contactForm" onsubmit="validateForm(event)"&gt;
+    &lt;div class="form-group"&gt;
+        &lt;label for="name"&gt;Name:&lt;/label&gt;
+        &lt;input type="text" id="name" required&gt;
+        &lt;span class="error" id="nameError"&gt;&lt;/span&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="form-group"&gt;
+        &lt;label for="email"&gt;Email:&lt;/label&gt;
+        &lt;input type="email" id="email" required&gt;
+        &lt;span class="error" id="emailError"&gt;&lt;/span&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="form-group"&gt;
+        &lt;label for="message"&gt;Message:&lt;/label&gt;
+        &lt;textarea id="message" rows="5" required&gt;&lt;/textarea&gt;
+        &lt;span class="error" id="messageError"&gt;&lt;/span&gt;
+    &lt;/div&gt;
+    
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                    </div>
+                    <div class="code-example">
+                        <h3>JavaScript Validation:</h3>
+                        <pre><code>function validateForm(event) {
+    event.preventDefault();
+    
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    
+    let isValid = true;
+    
+    // Name validation
+    if (name.length < 3) {
+        showError('nameError', 'Name must be at least 3 characters');
+        isValid = false;
+    } else {
+        clearError('nameError');
+    }
+    
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        showError('emailError', 'Please enter a valid email address');
+        isValid = false;
+    } else {
+        clearError('emailError');
+    }
+    
+    // Message validation
+    if (message.length < 10) {
+        showError('messageError', 'Message must be at least 10 characters');
+        isValid = false;
+    } else {
+        clearError('messageError');
+    }
+    
+    if (isValid) {
+        alert('Form submitted successfully!');
+        document.getElementById('contactForm').reset();
+    }
+}
+
+function showError(elementId, message) {
+    document.getElementById(elementId).textContent = message;
+}
+
+function clearError(elementId) {
+    document.getElementById(elementId).textContent = '';
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 My Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
+
