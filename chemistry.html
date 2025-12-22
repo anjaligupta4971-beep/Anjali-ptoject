@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chemistry Lab | STEM Lab Journal</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      }
+    };
+  </script>
+</head>
+<body class="page-chemistry">
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-title">STEM Lab Journal</span>
+      <span class="brand-subtitle">Chemistry Lab</span>
+    </div>
+    <nav class="nav-main">
+      <a href="index.html">Dashboard</a>
+      <a href="physics.html">Physics Lab</a>
+      <a href="chemistry.html" class="active">Chemistry Lab</a>
+      <a href="tools.html">Calculators</a>
+      <a href="blog.html">Concept Logs</a>
+    </nav>
+  </header>
+
+  <main class="shell">
+    <h1>Chemistry Lab: Structure &amp; Matter</h1>
+    <p class="lead">
+      Use this page as a compact notebook for atomic structure, a small
+      periodic overview, and solution chemistry with a lab-style molarity
+      and gas-law helper.
+    </p>
+
+    <section class="panel">
+      <h2>1. Atomic Structure</h2>
+      <p>
+        Atoms consist of a small, positively charged nucleus containing protons
+        and neutrons, surrounded by electrons occupying quantized energy levels.
+        The atomic number \(Z\) equals the number of protons and defines the
+        element, while the mass number \(A\) is the total number of protons
+        and neutrons.
+      </p>
+      <div class="diagram-container">
+        <svg width="100%" height="200" viewBox="0 0 300 200" style="max-width: 400px; margin: 1rem auto;">
+          <circle cx="150" cy="100" r="60" fill="none" stroke="#005bbb" stroke-width="2" stroke-dasharray="3,3" opacity="0.5" />
+          <circle cx="150" cy="100" r="40" fill="none" stroke="#005bbb" stroke-width="2" stroke-dasharray="3,3" opacity="0.5" />
+          <circle cx="150" cy="100" r="20" fill="#ff6b6b" stroke="#c92a2a" stroke-width="2" />
+          <circle cx="130" cy="90" r="3" fill="#4ecdc4" />
+          <circle cx="170" cy="90" r="3" fill="#4ecdc4" />
+          <circle cx="120" cy="110" r="3" fill="#4ecdc4" />
+          <circle cx="180" cy="110" r="3" fill="#4ecdc4" />
+          <circle cx="140" cy="120" r="3" fill="#4ecdc4" />
+          <circle cx="160" cy="120" r="3" fill="#4ecdc4" />
+          <text x="150" y="105" text-anchor="middle" fill="white" font-size="10" font-weight="600">Nucleus</text>
+          <text x="150" y="25" text-anchor="middle" fill="#1d2130" font-size="12" font-weight="600">Atomic Structure</text>
+          <text x="150" y="180" text-anchor="middle" fill="#6c7288" font-size="10">Electron Shells</text>
+        </svg>
+      </div>
+      <p>
+        In many college chemistry problems, electron configurations are written
+        using subshell notation such as \(1s^2 2s^2 2p^6 3s^2\). The valence
+        electrons (outermost shell) largely determine chemical reactivity.
+      </p>
+    </section>
+
+    <section class="panel">
+      <h2>2. Interactive Periodic Table</h2>
+      <p>
+        Click on any element box below to view detailed information including atomic number,
+        mass, electron configuration, electronegativity, and atomic radius. The table includes
+        all major elements with periodic trends displayed.
+      </p>
+      <div id="periodicTable" class="periodic-grid"></div>
+      <div id="elementDetails" class="element-details-panel" style="display: none;">
+        <h3 id="elementName"></h3>
+        <div id="elementInfo"></div>
+        <button class="pill" onclick="closeElementDetails()">Close</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>3. Solution Chemistry</h2>
+      <p>
+        Molarity \(M\) is defined as the amount of solute in moles per liter
+        of solution:
+        \[
+          M = \dfrac{n}{V}.
+        \]
+        Here, \(n\) is the number of moles and \(V\) is the solution volume
+        in liters.
+      </p>
+
+      <div class="tool-group">
+        <h3>Molarity Lab Calculator</h3>
+        <div class="form-row">
+          <label>
+            Moles of solute (mol)
+            <input type="number" id="moles" step="0.0001" />
+          </label>
+          <label>
+            Volume of solution (L)
+            <input type="number" id="volume" step="0.0001" />
+          </label>
+          <button class="pill" onclick="calculateMolarity()">Calculate \(M\)</button>
+        </div>
+        <p id="molarityResult" class="result"></p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>4. Gas Law: Simple Ideal Gas Calculator</h2>
+      <p>
+        For many gases at moderate temperature and pressure, the ideal gas law
+        \(pV = nRT\) is a reasonable approximation, where \(p\) is pressure,
+        \(V\) is volume, \(n\) is amount of gas, \(R\) is the gas constant,
+        and \(T\) is temperature in kelvin.
+      </p>
+
+      <div class="tool-group">
+        <h3>Find Pressure from Volume and Amount</h3>
+        <p class="small-note">
+          This calculator assumes \(R = 0.0821\,\text{L·atm·mol}^{-1}\text{K}^{-1}\)
+          and returns pressure in atmospheres.
+        </p>
+        <div class="form-row">
+          <label>
+            Amount of gas (mol)
+            <input type="number" id="gasN" step="0.0001" />
+          </label>
+          <label>
+            Volume (L)
+            <input type="number" id="gasV" step="0.0001" />
+          </label>
+          <label>
+            Temperature (K)
+            <input type="number" id="gasT" step="0.1" />
+          </label>
+          <button class="pill" onclick="calculateGasPressure()">Calculate \(p\)</button>
+        </div>
+        <p id="gasResult" class="result"></p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>5. Acid-Base Chemistry</h2>
+      <p>
+        Acids are substances that donate protons (H⁺ ions), while bases accept
+        protons. The pH scale measures acidity:
+        \[
+          \text{pH} = -\log[\text{H}^+],
+        \]
+        where \([\text{H}^+]\) is the hydrogen ion concentration in mol/L.
+      </p>
+      <p>
+        Strong acids (e.g., HCl, H₂SO₄) completely dissociate in water, while
+        weak acids (e.g., CH₃COOH) only partially dissociate. The acid
+        dissociation constant \(K_a\) quantifies this:
+        \[
+          K_a = \frac{[\text{H}^+][\text{A}^-]}{[\text{HA}]}.
+        \]
+      </p>
+      <div class="diagram-container">
+        <svg width="100%" height="150" viewBox="0 0 400 150" style="max-width: 500px; margin: 1rem 0;">
+          <rect x="50" y="50" width="300" height="60" fill="#e6f3ff" stroke="#005bbb" stroke-width="2" rx="5" />
+          <text x="200" y="85" text-anchor="middle" fill="#005bbb" font-size="14" font-weight="600">Water (H₂O)</text>
+          <text x="100" y="30" fill="#1d2130" font-size="12">H⁺ (Acid)</text>
+          <text x="280" y="30" fill="#1d2130" font-size="12">OH⁻ (Base)</text>
+          <line x1="100" y1="40" x2="120" y2="70" stroke="#ff6b6b" stroke-width="2" marker-end="url(#arrowhead)" />
+          <line x1="300" y1="40" x2="280" y2="70" stroke="#4ecdc4" stroke-width="2" marker-end="url(#arrowhead)" />
+          <text x="200" y="130" fill="#6c7288" font-size="11">Acid-Base Reaction in Aqueous Solution</text>
+          <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+              <polygon points="0 0, 10 3, 0 6" fill="#005bbb" />
+            </marker>
+          </defs>
+        </svg>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>6. Redox Reactions</h2>
+      <p>
+        Oxidation-reduction (redox) reactions involve the transfer of electrons
+        between species. Oxidation is the loss of electrons, while reduction is
+        the gain of electrons. The species that loses electrons is the reducing
+        agent, and the species that gains electrons is the oxidizing agent.
+      </p>
+      <p>
+        In a balanced redox reaction, the number of electrons lost must equal
+        the number of electrons gained. For example, in the reaction:
+        \[
+          \text{Zn} + \text{Cu}^{2+} \rightarrow \text{Zn}^{2+} + \text{Cu},
+        \]
+        zinc is oxidized (loses 2 electrons) and copper is reduced (gains 2
+        electrons).
+      </p>
+      <p>
+        Oxidation numbers help track electron transfer. Rules include: elements
+        in their standard state have an oxidation number of 0, oxygen is usually
+        -2, and hydrogen is usually +1 (except in metal hydrides where it is -1).
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>STEM Lab Journal · Chemistry Lab</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+

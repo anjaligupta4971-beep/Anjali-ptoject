@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculators | STEM Lab Journal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-tools">
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-title">STEM Lab Journal</span>
+      <span class="brand-subtitle">Calculator Workspace</span>
+    </div>
+    <nav class="nav-main">
+      <a href="index.html">Dashboard</a>
+      <a href="physics.html">Physics Lab</a>
+      <a href="chemistry.html">Chemistry Lab</a>
+      <a href="tools.html" class="active">Calculators</a>
+      <a href="blog.html">Concept Logs</a>
+    </nav>
+  </header>
+
+  <main class="shell">
+    <h1>Calculator Workspace</h1>
+    <p class="lead">
+      A single page where you can quickly access small calculators used in
+      physics and chemistry lab questions.
+    </p>
+
+    <section class="grid two-column">
+      <article class="panel">
+        <h2>Physics: Motion &amp; Circuits</h2>
+        <div class="tool-group">
+          <h3>1. Vertical Drop Time</h3>
+          <div class="form-row">
+            <label>
+              Height (m)
+              <input type="number" id="dropHeightTool" step="0.01" />
+            </label>
+            <button class="pill" onclick="calculateDropTimeTool()">Time</button>
+          </div>
+          <p id="dropToolResult" class="result"></p>
+        </div>
+
+        <div class="tool-group">
+          <h3>2. Ohm's Law</h3>
+          <div class="form-row">
+            <label>
+              Voltage (V)
+              <input type="number" id="ohmVTool" step="0.01" />
+            </label>
+            <label>
+              Resistance (Ω)
+              <input type="number" id="ohmRTool" step="0.01" />
+            </label>
+            <button class="pill" onclick="calculateOhmsLawTool()">Current</button>
+          </div>
+          <p id="ohmToolResult" class="result"></p>
+        </div>
+      </article>
+
+      <article class="panel">
+        <h2>Chemistry: Solutions &amp; Gases</h2>
+        <div class="tool-group">
+          <h3>3. Molarity</h3>
+          <div class="form-row">
+            <label>
+              Moles of solute (mol)
+              <input type="number" id="molesTool" step="0.0001" />
+            </label>
+            <label>
+              Volume of solution (L)
+              <input type="number" id="volumeTool" step="0.0001" />
+            </label>
+            <button class="pill" onclick="calculateMolarityTool()">Molarity</button>
+          </div>
+          <p id="molarityToolResult" class="result"></p>
+        </div>
+
+        <div class="tool-group">
+          <h3>4. Ideal Gas Pressure</h3>
+          <div class="form-row">
+            <label>
+              Amount of gas (mol)
+              <input type="number" id="gasNTool" step="0.0001" />
+            </label>
+            <label>
+              Volume (L)
+              <input type="number" id="gasVTool" step="0.0001" />
+            </label>
+            <label>
+              Temperature (K)
+              <input type="number" id="gasTTool" step="0.1" />
+            </label>
+            <button class="pill" onclick="calculateGasPressureTool()">Pressure</button>
+          </div>
+          <p id="gasToolResult" class="result"></p>
+        </div>
+      </article>
+    </section>
+
+    <section class="grid two-column">
+      <article class="panel">
+        <h2>Physics: Waves &amp; Motion</h2>
+        <div class="tool-group">
+          <h3>5. Projectile Motion</h3>
+          <div class="form-row">
+            <label>
+              Initial Velocity (m/s)
+              <input type="number" id="projVelocity" step="0.1" />
+            </label>
+            <label>
+              Launch Angle (degrees)
+              <input type="number" id="projAngle" step="0.1" />
+            </label>
+            <button class="pill" onclick="calculateProjectile()">Calculate</button>
+          </div>
+          <p id="projResult" class="result"></p>
+        </div>
+
+        <div class="tool-group">
+          <h3>6. Wavelength ↔ Frequency</h3>
+          <div class="form-row">
+            <label>
+              Frequency (Hz)
+              <input type="number" id="frequency" step="1e6" />
+            </label>
+            <button class="pill" onclick="calculateWavelength()">Find Wavelength</button>
+          </div>
+          <p id="wavelengthResult" class="result"></p>
+          <div class="form-row" style="margin-top: 0.5rem;">
+            <label>
+              Wavelength (m)
+              <input type="number" id="wavelength" step="1e-9" />
+            </label>
+            <button class="pill" onclick="calculateFrequency()">Find Frequency</button>
+          </div>
+          <p id="frequencyResult" class="result"></p>
+        </div>
+
+        <div class="tool-group">
+          <h3>7. Density</h3>
+          <div class="form-row">
+            <label>
+              Mass (kg)
+              <input type="number" id="densityMass" step="0.001" />
+            </label>
+            <label>
+              Volume (m³)
+              <input type="number" id="densityVolume" step="0.0001" />
+            </label>
+            <button class="pill" onclick="calculateDensity()">Calculate</button>
+          </div>
+          <p id="densityResult" class="result"></p>
+        </div>
+      </article>
+
+      <article class="panel">
+        <h2>Chemistry: Solutions &amp; Units</h2>
+        <div class="tool-group">
+          <h3>8. pH Calculator</h3>
+          <div class="form-row">
+            <label>
+              H⁺ Concentration (mol/L)
+              <input type="number" id="hPlus" step="0.0001" />
+            </label>
+            <button class="pill" onclick="calculatePH()">Calculate pH</button>
+          </div>
+          <p id="phResult" class="result"></p>
+        </div>
+
+        <div class="tool-group">
+          <h3>9. Temperature Converter</h3>
+          <p class="small-note">Enter temperature in any one field:</p>
+          <div class="form-row">
+            <label>
+              Celsius (°C)
+              <input type="number" id="tempC" step="0.01" />
+            </label>
+            <label>
+              Kelvin (K)
+              <input type="number" id="tempK" step="0.01" />
+            </label>
+            <label>
+              Fahrenheit (°F)
+              <input type="number" id="tempF" step="0.01" />
+            </label>
+            <button class="pill" onclick="convertTemperature()">Convert</button>
+          </div>
+          <p id="tempResult" class="result"></p>
+        </div>
+      </article>
+    </section>
+
+    <section class="panel">
+      <h2>Interactive Periodic Table</h2>
+      <p>
+        Click on any element box to view detailed information including atomic number,
+        mass, electron configuration, electronegativity, and atomic radius. Explore
+        periodic trends across the table.
+      </p>
+      <div id="periodicTable" class="periodic-grid"></div>
+      <div id="elementDetails" class="element-details-panel" style="display: none;">
+        <h3 id="elementName"></h3>
+        <div id="elementInfo"></div>
+        <button class="pill" onclick="closeElementDetails()">Close</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>STEM Lab Journal · Calculators</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+

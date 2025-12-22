@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Physics Lab | STEM Lab Journal</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      }
+    };
+  </script>
+</head>
+<body class="page-physics">
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-title">STEM Lab Journal</span>
+      <span class="brand-subtitle">Physics Lab</span>
+    </div>
+    <nav class="nav-main">
+      <a href="index.html">Dashboard</a>
+      <a href="physics.html" class="active">Physics Lab</a>
+      <a href="chemistry.html">Chemistry Lab</a>
+      <a href="tools.html">Calculators</a>
+      <a href="blog.html">Concept Logs</a>
+    </nav>
+  </header>
+
+  <main class="shell">
+    <h1>Physics Lab: Mechanics &amp; Circuits</h1>
+    <p class="lead">
+      This section collects key formulas, short explanations, and lab-style
+      calculators for introductory mechanics and basic electric circuits.
+    </p>
+
+    <section class="panel">
+      <h2>1. Kinematics: Constant Acceleration</h2>
+      <p>
+        Kinematics describes motion in terms of displacement \(s\),
+        velocity \(v\), and acceleration \(a\) without explaining
+        why the motion occurs. For motion in a straight line with constant
+        acceleration, the following equations are commonly used:
+      </p>
+      <ul>
+        <li>\( v = u + at \)</li>
+        <li>\( s = ut + \tfrac{1}{2}at^2 \)</li>
+        <li>\( v^2 = u^2 + 2as \)</li>
+      </ul>
+      <p>
+        Here, \(u\) is the initial velocity, \(v\) is the final velocity,
+        \(t\) is the time interval, and \(s\) is the displacement.
+      </p>
+
+      <div class="tool-group">
+        <h3>Vertical Drop Time Calculator</h3>
+        <p>
+          Assuming an object is dropped from rest \(u = 0\) and falls freely
+          under gravity \(g = 9.81\,\text{m s}^{-2}\), the time to fall
+          from height \(h\) is
+          \[
+            t = \sqrt{\dfrac{2h}{g}}.
+          \]
+        </p>
+        <div class="form-row">
+          <label>
+            Height (m)
+            <input type="number" id="dropHeight" step="0.01" />
+          </label>
+          <button class="pill" onclick="calculateDropTime()">Calculate time</button>
+        </div>
+        <p id="dropResult" class="result"></p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>2. Energy: Kinetic and Potential</h2>
+      <p>
+        The kinetic energy of a particle of mass \(m\) moving with speed
+        \(v\) is
+        \[
+          E_k = \tfrac{1}{2}mv^2.
+        \]
+        Near Earth's surface, the gravitational potential energy of an object
+        of mass \(m\) at height \(h\) is
+        \[
+          E_p = mgh.
+        \]
+      </p>
+
+      <div class="tool-group">
+        <h3>Kinetic Energy Calculator</h3>
+        <div class="form-row">
+          <label>
+            Mass (kg)
+            <input type="number" id="keMass" step="0.01" />
+          </label>
+          <label>
+            Speed (m/s)
+            <input type="number" id="keSpeed" step="0.01" />
+          </label>
+          <button class="pill" onclick="calculateKineticEnergy()">Calculate \\(E_k\\)</button>
+        </div>
+        <p id="keResult" class="result"></p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>3. Circuits: Ohm's Law</h2>
+      <p>
+        Ohm's law connects voltage \(V\), current \(I\), and resistance
+        \(R\) in many simple circuits:
+        \[
+          V = IR.
+        \]
+      </p>
+      <p>
+        If any two of \(V\), \(I\), and \(R\) are known, the third can
+        be calculated. For example, \( I = V/R \) and \( R = V/I \).
+      </p>
+
+      <div class="tool-group">
+        <h3>Ohm's Law Lab Helper</h3>
+        <div class="form-row">
+          <label>
+            Voltage (V)
+            <input type="number" id="ohmV" step="0.01" />
+          </label>
+          <label>
+            Resistance (Ω)
+            <input type="number" id="ohmR" step="0.01" />
+          </label>
+          <button class="pill" onclick="calculateOhmsLaw()">Find current</button>
+        </div>
+        <p id="ohmResult" class="result"></p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>4. Waves: Wavelength and Frequency</h2>
+      <p>
+        Waves are periodic disturbances that transfer energy without transferring
+        matter. The relationship between wavelength \(\lambda\), frequency \(f\),
+        and wave speed \(c\) is:
+        \[
+          c = \lambda f.
+        \]
+        For electromagnetic waves in vacuum, \(c = 3.00 \times 10^8\) m/s.
+      </p>
+      <div class="diagram-container">
+        <svg width="100%" height="120" viewBox="0 0 400 120" style="max-width: 500px; margin: 1rem 0;">
+          <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+              <polygon points="0 0, 10 3, 0 6" fill="#005bbb" />
+            </marker>
+          </defs>
+          <path d="M 20 60 Q 100 40, 180 60 T 340 60" stroke="#005bbb" stroke-width="2" fill="none" />
+          <path d="M 20 60 Q 100 80, 180 60 T 340 60" stroke="#005bbb" stroke-width="2" fill="none" />
+          <line x1="20" y1="60" x2="340" y2="60" stroke="#6c7288" stroke-width="1" stroke-dasharray="3,3" />
+          <text x="180" y="35" fill="#005bbb" font-size="12" font-weight="600">Wavelength (λ)</text>
+          <line x1="20" y1="60" x2="180" y2="60" stroke="#ff6b6b" stroke-width="2" marker-end="url(#arrowhead)" />
+          <text x="100" y="75" fill="#ff6b6b" font-size="10">λ</text>
+        </svg>
+      </div>
+      <p>
+        The amplitude of a wave is the maximum displacement from equilibrium.
+        For sound waves, amplitude relates to loudness; for light waves, it
+        relates to brightness.
+      </p>
+    </section>
+
+    <section class="panel">
+      <h2>5. Thermodynamics: Heat and Energy</h2>
+      <p>
+        The first law of thermodynamics states that the change in internal energy
+        \(\Delta U\) of a system equals the heat added \(Q\) minus the work done
+        by the system \(W\):
+        \[
+          \Delta U = Q - W.
+        \]
+      </p>
+      <p>
+        Heat capacity \(C\) relates the heat added to a system to its
+        temperature change:
+        \[
+          Q = C\Delta T.
+        \]
+        For a specific substance, the specific heat capacity \(c\) is used:
+        \[
+          Q = mc\Delta T,
+        \]
+        where \(m\) is mass and \(c\) is the specific heat capacity.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>STEM Lab Journal · Physics Lab</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
