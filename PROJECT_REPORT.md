@@ -442,7 +442,448 @@ The project serves as a practical demonstration of web development skills while 
 
 ### B. Code Samples
 
-*[Note: Include key code snippets if required]*
+This section includes key code snippets demonstrating important implementation aspects of the project.
+
+#### B.1 HTML Structure Example
+
+**Header and Navigation Structure** (from `physics.html`):
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Physics Lab | STEM Lab Journal</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      }
+    };
+  </script>
+</head>
+<body class="page-physics">
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-title">STEM Lab Journal</span>
+      <span class="brand-subtitle">Physics Lab</span>
+    </div>
+    <nav class="nav-main">
+      <a href="index.html">Dashboard</a>
+      <a href="physics.html" class="active">Physics Lab</a>
+      <a href="chemistry.html">Chemistry Lab</a>
+      <a href="tools.html">Calculators</a>
+      <a href="blog.html">Concept Logs</a>
+    </nav>
+  </header>
+  <!-- Main content -->
+</body>
+</html>
+```
+
+**Key Features:**
+- Semantic HTML5 structure
+- MathJax integration for formula rendering
+- Responsive viewport meta tag
+- Consistent navigation across pages
+
+---
+
+#### B.2 MathJax Configuration
+
+**Mathematical Formula Rendering Setup**:
+
+```javascript
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],      // Inline math: \( formula \)
+    displayMath: [['\\[', '\\]']]      // Display math: \[ formula \]
+  }
+};
+```
+
+**Usage in HTML**:
+```html
+<p>
+  The kinetic energy formula is \( E_k = \tfrac{1}{2}mv^2 \).
+  For display equations:
+  \[
+    v = u + at
+  \]
+</p>
+```
+
+---
+
+#### B.3 JavaScript Calculator Function
+
+**Example: Vertical Drop Time Calculator** (from `script.js`):
+
+```javascript
+function calculateDropTime() {
+  // Get input value
+  const h = parseFloat(document.getElementById("dropHeight").value);
+  const resultEl = document.getElementById("dropResult");
+  
+  // Input validation
+  if (isNaN(h) || h <= 0) {
+    resultEl.textContent = "Enter a positive height.";
+    return;
+  }
+  
+  // Calculation
+  const g = 9.81;  // Acceleration due to gravity (m/s²)
+  const t = Math.sqrt((2 * h) / g);
+  
+  // Display result
+  resultEl.textContent = `Time to fall ≈ ${t.toFixed(2)} s`;
+}
+```
+
+**Key Features:**
+- Input validation
+- Error handling
+- Clear result formatting
+- Proper unit display
+
+---
+
+#### B.4 Periodic Table Implementation
+
+**Element Data Structure**:
+
+```javascript
+const periodicElements = [
+  {
+    symbol: "H",
+    name: "Hydrogen",
+    number: 1,
+    mass: "1.008",
+    type: "Non-metal",
+    category: "nonmetal",
+    electronConfig: "1s¹",
+    electronegativity: 2.20,
+    radius: 53
+  },
+  // ... more elements
+];
+```
+
+**Periodic Table Initialization**:
+
+```javascript
+function initPeriodicTable() {
+  const container = document.getElementById("periodicTable");
+  if (!container) return;
+
+  periodicElements.forEach(element => {
+    const box = document.createElement("div");
+    box.className = `periodic-element ${element.category}`;
+    box.innerHTML = `
+      <div class="symbol">${element.symbol}</div>
+      <div class="number">${element.number}</div>
+    `;
+    box.onclick = () => showElementDetails(element);
+    container.appendChild(box);
+  });
+}
+```
+
+**Element Details Display**:
+
+```javascript
+function showElementDetails(element) {
+  const detailsPanel = document.getElementById("elementDetails");
+  const nameEl = document.getElementById("elementName");
+  const infoEl = document.getElementById("elementInfo");
+
+  nameEl.textContent = `${element.name} (${element.symbol})`;
+  
+  let detailsHTML = `
+    <div class="detail-row">
+      <span class="detail-label">Atomic Number:</span>
+      <span class="detail-value">${element.number}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Atomic Mass:</span>
+      <span class="detail-value">${element.mass} u</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Electron Config:</span>
+      <span class="detail-value">${element.electronConfig}</span>
+    </div>
+  `;
+  
+  // Add periodic trends if available
+  if (element.electronegativity !== null) {
+    detailsHTML += `
+      <div class="detail-row">
+        <span class="detail-label">Electronegativity:</span>
+        <span class="detail-value">${element.electronegativity}</span>
+      </div>
+    `;
+  }
+  
+  infoEl.innerHTML = detailsHTML;
+  detailsPanel.style.display = "block";
+}
+```
+
+---
+
+#### B.5 CSS Styling Example
+
+**Periodic Table Grid Layout** (from `style.css`):
+
+```css
+.periodic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+  max-width: 100%;
+}
+
+.periodic-element {
+  aspect-ratio: 1;
+  border: 2px solid #c6cce3;
+  border-radius: 0.5rem;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0.4rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.periodic-element:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 91, 187, 0.2);
+  border-color: #005bbb;
+  background: #f0f3ff;
+}
+
+/* Color-coded categories */
+.periodic-element.alkali {
+  background: #ffe6e6;
+  border-color: #ff9999;
+}
+
+.periodic-element.transition {
+  background: #e6f3ff;
+  border-color: #99ccff;
+}
+```
+
+**Responsive Design**:
+
+```css
+@media (max-width: 800px) {
+  .panel-intro {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+
+  .nav-main a {
+    margin-left: 0;
+    margin-right: 0.6rem;
+  }
+}
+```
+
+---
+
+#### B.6 SVG Diagram Example
+
+**Atomic Structure Diagram** (from `chemistry.html`):
+
+```html
+<div class="diagram-container">
+  <svg width="100%" height="200" viewBox="0 0 300 200" 
+       style="max-width: 400px; margin: 1rem auto;">
+    <!-- Electron shells (dashed circles) -->
+    <circle cx="150" cy="100" r="60" 
+            fill="none" stroke="#005bbb" 
+            stroke-width="2" stroke-dasharray="3,3" 
+            opacity="0.5" />
+    <circle cx="150" cy="100" r="40" 
+            fill="none" stroke="#005bbb" 
+            stroke-width="2" stroke-dasharray="3,3" 
+            opacity="0.5" />
+    
+    <!-- Nucleus -->
+    <circle cx="150" cy="100" r="20" 
+            fill="#ff6b6b" stroke="#c92a2a" 
+            stroke-width="2" />
+    
+    <!-- Electrons -->
+    <circle cx="130" cy="90" r="3" fill="#4ecdc4" />
+    <circle cx="170" cy="90" r="3" fill="#4ecdc4" />
+    <circle cx="120" cy="110" r="3" fill="#4ecdc4" />
+    <circle cx="180" cy="110" r="3" fill="#4ecdc4" />
+    
+    <!-- Labels -->
+    <text x="150" y="105" text-anchor="middle" 
+          fill="white" font-size="10" font-weight="600">
+      Nucleus
+    </text>
+    <text x="150" y="25" text-anchor="middle" 
+          fill="#1d2130" font-size="12" font-weight="600">
+      Atomic Structure
+    </text>
+  </svg>
+</div>
+```
+
+---
+
+#### B.7 Advanced Calculator Example
+
+**Projectile Motion Calculator**:
+
+```javascript
+function calculateProjectile() {
+  const v0 = parseFloat(document.getElementById("projVelocity").value);
+  const angle = parseFloat(document.getElementById("projAngle").value);
+  const resultEl = document.getElementById("projResult");
+  
+  // Validation
+  if (isNaN(v0) || isNaN(angle) || v0 <= 0 || angle < 0 || angle > 90) {
+    resultEl.textContent = "Enter valid velocity and angle (0-90°).";
+    return;
+  }
+  
+  const g = 9.81;
+  const angleRad = (angle * Math.PI) / 180;  // Convert to radians
+  
+  // Calculations
+  const range = ((v0 * v0) * Math.sin(2 * angleRad)) / g;
+  const maxHeight = ((v0 * v0) * Math.sin(angleRad) * Math.sin(angleRad)) / (2 * g);
+  const timeOfFlight = (2 * v0 * Math.sin(angleRad)) / g;
+  
+  // Display multiple results
+  resultEl.innerHTML = `
+    Range ≈ ${range.toFixed(2)} m<br>
+    Max Height ≈ ${maxHeight.toFixed(2)} m<br>
+    Time of Flight ≈ ${timeOfFlight.toFixed(2)} s
+  `;
+}
+```
+
+---
+
+#### B.8 Temperature Converter Example
+
+**Multi-Input Converter**:
+
+```javascript
+function convertTemperature() {
+  const celsius = document.getElementById("tempC").value;
+  const kelvin = document.getElementById("tempK").value;
+  const fahrenheit = document.getElementById("tempF").value;
+  const resultEl = document.getElementById("tempResult");
+  
+  let c, k, f;
+  
+  // Determine which input was provided
+  if (celsius !== "") {
+    c = parseFloat(celsius);
+    k = c + 273.15;
+    f = (c * 9/5) + 32;
+  } else if (kelvin !== "") {
+    k = parseFloat(kelvin);
+    c = k - 273.15;
+    f = (c * 9/5) + 32;
+  } else if (fahrenheit !== "") {
+    f = parseFloat(fahrenheit);
+    c = (f - 32) * 5/9;
+    k = c + 273.15;
+  } else {
+    resultEl.textContent = "Enter a temperature in any unit.";
+    return;
+  }
+  
+  // Display all conversions
+  resultEl.innerHTML = `
+    Celsius: ${c.toFixed(2)} °C<br>
+    Kelvin: ${k.toFixed(2)} K<br>
+    Fahrenheit: ${f.toFixed(2)} °F
+  `;
+}
+```
+
+---
+
+#### B.9 Form Input Structure
+
+**Calculator Form Example** (from `physics.html`):
+
+```html
+<div class="tool-group">
+  <h3>Kinetic Energy Calculator</h3>
+  <div class="form-row">
+    <label>
+      Mass (kg)
+      <input type="number" id="keMass" step="0.01" />
+    </label>
+    <label>
+      Speed (m/s)
+      <input type="number" id="keSpeed" step="0.01" />
+    </label>
+    <button class="pill" onclick="calculateKineticEnergy()">
+      Calculate \(E_k\)
+    </button>
+  </div>
+  <p id="keResult" class="result"></p>
+</div>
+```
+
+---
+
+#### B.10 Page Initialization
+
+**DOM Ready Event Handling**:
+
+```javascript
+// Initialize on page load
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initPeriodicTable);
+} else {
+  initPeriodicTable();
+}
+```
+
+This ensures the periodic table initializes whether the script loads before or after the DOM is ready.
+
+---
+
+**Summary of Code Samples:**
+
+1. **HTML Structure**: Semantic markup with MathJax integration
+2. **MathJax Config**: Formula rendering setup
+3. **Calculator Functions**: Input validation and calculations
+4. **Periodic Table**: Dynamic element generation and interaction
+5. **CSS Styling**: Grid layout and responsive design
+6. **SVG Diagrams**: Visual representation of concepts
+7. **Advanced Calculators**: Multi-result calculations
+8. **Form Structure**: User input handling
+9. **Initialization**: DOM ready event handling
+
+These code samples demonstrate the core implementation techniques used throughout the project.
 
 ### C. User Manual
 
